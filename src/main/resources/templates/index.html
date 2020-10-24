@@ -1,43 +1,28 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:iStat="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title th:text="#{app.title}">Strona główna</title>
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"  th:href="@{/css/style.css}"/>
 </head>
 
 <body>
 
-<header>
-    <nav th:include="fragments/nav :: nav"></nav>
-    <div>
-        <div class="header--main-page">
-            <div class="slogan container container--90">
-                <div class="slogan--item">
-                    <h1>
-                        Zacznij pomagać!<br/>
-                        Oddaj niechciane rzeczy w zaufane ręce
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
+<header th:include="fragments/header.html :: header" class="header--main-page"></header>
 
 <section id="stats" class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em th:text="${numberOfAllDonations}"></em>
+            <em th:text="-- + ${numberOfAllDonations} + --"></em>
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>
         </div>
 
         <div class="stats--item">
-            <em th:text="${numberOfDonations}"></em>
+            <em th:text="-- + ${numberOfDonations} + --"></em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -94,15 +79,15 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
+            <li th:each="institution, iStat: ${institutions}" th:if="${iStat.odd}">
                 <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
+                    <div class="title">Fundacja <p th:text="${institution.name}"/> </div>
+                    <div class="subtitle">Cel i misja: <p th:text="${institution.description}"/></div>
                 </div>
 
                 <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
+                    <div class="title">Fundacja <p th:text="${institutions[__${iStat.count}__].name}"/></div>
+                    <div class="subtitle">Cel i misja: <p th:text="${institutions[__${iStat.count}__].description}"/></div>
                 </div>
             </li>
 
