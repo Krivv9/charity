@@ -56,7 +56,7 @@ public class DonationController {
         return "form";
     }
 
-    @RequestMapping("donation/confirm")
+    @PostMapping("donation/confirm")
     public String confirm() {
         return "confirm";
     }

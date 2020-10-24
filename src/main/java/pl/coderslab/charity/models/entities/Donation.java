@@ -30,7 +30,7 @@ public class Donation {
 
     private String pickUpComment;
 
-    @OneToMany(mappedBy = "donation")
+    @OneToMany
     private List<Category> categories;
 
     @OneToOne

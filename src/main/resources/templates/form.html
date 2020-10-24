@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<header th:include="fragments/header.html :: header" class="header--main-page"></header>
+<header th:include="fragments/headerLogged :: header" class="header--main-page"></header>
 
 <section class="form--steps">
     <div class="form--steps-instructions">
@@ -45,8 +45,7 @@
                                value="clothes-to-use"
                                th:field="*{categoriesId}"/>
                         <span class="checkbox"></span>
-                        <span class="description">
-                            ubrania, które nadają się do ponownego użycia</span>
+                        <span class="description" th:text="${category.name}"></span>
                     </label>
                 </div>
                 <div class="form-group form-group--buttons">
@@ -81,8 +80,8 @@
                         <input type="radio" name="organization" value="old" th:field="*{institutionId}"/>
                         <span class="checkbox radio"></span>
                         <span class="description">
-                  <div class="title" th:text="${institution.name}"></div>
-                  <div class="subtitle" th:text="${institution.description}">
+                  <div class="title">Fundacja: <p  th:text="${institution.name}"/></div>
+                  <div class="subtitle">Cel i misja: <p  th:text="${institution.description}"/>
 <!--                    Cel i misja: Pomoc dla osób nie posiadających miejsca-->
 <!--                    zamieszkania-->
 <                  </div>
