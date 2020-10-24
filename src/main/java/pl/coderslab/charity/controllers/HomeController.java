@@ -19,7 +19,11 @@ public class HomeController {
     @RequestMapping("/")
     public String homeAction(Model model){
         model.addAttribute("numberOfDonations",donationService.numberOfDonations());
-        model.addAttribute("numberOfAllDonations",donationService.numberOfAllDonations());
+        model.addAttribute("numberOfAllDonations",11111111);
+
+        log.info("Test" + donationService.numberOfAllDonations());
+        System.out.println("Czesc ooooo -----------------------");
+        log.info("----------------------------------------------------------------------");
         return "index";
     }
 }

@@ -11,6 +11,6 @@ import javax.transaction.Transactional;
 @Repository
 public interface DonationRepository extends JpaRepository<Donation, Long> {
 
-    @Query("Select SUM (d.quantity) FROM Donation d")
+    @Query(value = "Select SUM(quantity) FROM Donation", nativeQuery = true)
     int numberOfAllDonations();
 }

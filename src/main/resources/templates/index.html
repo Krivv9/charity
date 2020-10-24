@@ -4,13 +4,14 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Strona główna</title>
+    <title th:text="#{app.title}">Strona główna</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
 </head>
 
 <body>
+
 <header>
-    <nav th:include="fragments/header :: header"></nav>
+    <nav th:include="fragments/nav :: nav"></nav>
     <div>
         <div class="header--main-page">
             <div class="slogan container container--90">
