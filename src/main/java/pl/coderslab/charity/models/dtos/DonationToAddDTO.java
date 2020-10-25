@@ -35,7 +35,6 @@ public class DonationToAddDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
-    @NotBlank
     private LocalTime pickUpTime;
 
     private String pickUpComments;

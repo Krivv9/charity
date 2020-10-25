@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.models.dtos.DonationToAddDTO;
 import pl.coderslab.charity.models.entities.Category;
 import pl.coderslab.charity.models.entities.Institution;
@@ -39,25 +38,19 @@ public class DonationController {
 
 
 
-    @PostMapping("/donation/form")
+    @PostMapping("/donation/confirm")
     public String saveDonation(@Valid DonationToAddDTO donationDTO,
                                BindingResult result) {
         if (result.hasErrors()) {
             return "form";
         }
         donationService.saveDonation(donationDTO);
-        return "form";
+        return "confirm";
     }
 
     @GetMapping("/donation/form")
     public String showDonationForm(Model model) {
         model.addAttribute("donation", new DonationToAddDTO());
-        model.addAttribute("nowy", "nowy");
         return "form";
-    }
-
-    @PostMapping("donation/confirm")
-    public String confirm() {
-        return "confirm";
     }
 }

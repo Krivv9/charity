@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<header th:include="fragments/headerLogged :: header" class="header--main-page"></header>
+<header th:include="fragments/headerLogged :: header" class="header--form-page"></header>
 
 <section class="form--steps">
     <div class="form--steps-instructions">
@@ -84,7 +84,7 @@
                   <div class="subtitle">Cel i misja: <p  th:text="${institution.description}"/>
 <!--                    Cel i misja: Pomoc dla osób nie posiadających miejsca-->
 <!--                    zamieszkania-->
-<                  </div>
+                  </div>
                 </span>
                     </label>
                 </div>
@@ -117,7 +117,7 @@
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="number" name="phone" th:field="*{phoneNumber}"/>
+                                Numer telefonu <input type="tel" name="phone" th:field="*{phoneNumber}"/>
                             </label>
                         </div>
                     </div>
@@ -156,16 +156,14 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
-                                >
+                                <span class="summary--text">
+                                    4 worki ubrań w dobrym stanie dla dzieci</span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
-                                >
+                                <span class="summary--text">
+                                    Dla fundacji "Mam marzenie" w Warszawie</span>
                             </li>
                         </ul>
                     </div>
@@ -202,7 +200,7 @@
 </section>
 
 
-<!--<footer th:include="footer.html :: footer"></footer>-->
+<footer th:include="fragments/footer :: footer"></footer>
 <script type="text/javascript" th:src="@{/js/app.js}"></script>
 </body>
 </html>
