@@ -34,9 +34,9 @@ public class UserService {
         user.setEmail(userToAddDTO.getEmail());
         user.setName(userToAddDTO.getName());
         if ("admin".equals(user.getName())) {
-            user.setRole(Role.ADMIN.toString());
+            user.setRole(Role.ROLE_ADMIN.toString());
         } else {
-            user.setRole(Role.USER.toString());
+            user.setRole(Role.ROLE_USER.toString());
         }
         log.info("Attempt to save user: " + user);
         userRepository.save(user);

@@ -13,7 +13,7 @@
 
 <section class="login-page">
     <h2>Załóż konto</h2>
-    <form method="post" action="/registration" th:object="${user}">
+    <form method="post" th:action="@{/registration}" th:object="${userDTO}">
         <div class="form-group">
             <input type="email" name="email" placeholder="Email" th:field="*{email}"/>
         </div>

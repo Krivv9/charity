@@ -17,16 +17,18 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    private final CustomSuccessHandler customSuccessHandler;
     private final DataSource dataSource;
 
-    @Value("select email, password, active from users where email=?")
+    @Value("SELECT email, password, active FROM users WHERE email=?")
     private String usersQuery;
 
-    @Value("select email, role from users where email =?")
+    @Value("SELECT email, role FROM users WHERE email =?")
     private String rolesQuery;
 
-    public WebSecurityConfiguration(DataSource dataSource) {
+    public WebSecurityConfiguration(DataSource dataSource, CustomSuccessHandler customSuccessHandler) {
         this.dataSource = dataSource;
+        this.customSuccessHandler=customSuccessHandler;
     }
 
 
@@ -34,10 +36,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .jdbcAuthentication()
-                .usersByUsernameQuery(usersQuery)
-                .authoritiesByUsernameQuery(rolesQuery)
                 .dataSource(dataSource)
-                .passwordEncoder(passwordEncoder());
+                .passwordEncoder(passwordEncoder())
+                .usersByUsernameQuery(usersQuery)
+                .authoritiesByUsernameQuery(rolesQuery);
     }
 
     @Override
@@ -48,14 +50,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
-                .antMatchers("/donation/**").hasRole("USER")
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/donation/**").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
-                .and().formLogin()
-                .loginPage("/login").failureUrl("/users/notLogged")
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .successHandler(customSuccessHandler)
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/login/success")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/");

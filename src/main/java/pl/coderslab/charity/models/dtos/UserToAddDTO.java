@@ -13,18 +13,16 @@ import javax.validation.constraints.Size;
 @DoublePassword
 public class UserToAddDTO {
 
-    @NotEmpty(message = "*Please write your name")
+    @NotEmpty
     private String name;
 
-    @Email(message = "*Please provide a valid Email")
-    @NotEmpty(message = "*Please provide an email")
+    @Email
+    @NotEmpty
     @UniqueEmail
     private String email;
 
-    @Size(min = 4, message = "*Your password must have at least 4 characters")
-    @NotEmpty(message = "*Please provide your password")
+    @Size(min = 4)
+    @NotEmpty
     private String password;
     private String doublePassword;
-
-    private Boolean active;
 }
