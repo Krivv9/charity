@@ -28,12 +28,4 @@ public class HomeController {
         model.addAttribute("institutions",institutionService.findAllInstitutions());
         return "index";
     }
-
-    @GetMapping("/test")
-    public String test(Model model){
-        model.addAttribute("numberOfDonations",donationService.numberOfDonations());
-        model.addAttribute("numberOfAllDonations",donationService.numberOfAllDonations());
-        model.addAttribute("worki",123);
-        return "test";
-    }
 }

@@ -31,10 +31,10 @@ public class DonationToAddDTO {
     @NotBlank
     private String phoneNumber;
 
-    @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime pickUpTime;
 
     private String pickUpComments;

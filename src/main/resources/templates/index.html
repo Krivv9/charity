@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:iStat="http://www.w3.org/1999/xhtml">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +10,18 @@
 
 <body>
 
-<header th:include="fragments/header.html :: header" class="header--main-page"></header>
+<header th:include="fragments/header.html :: header" class="header--main-page">
+    <div>
+        <div class="slogan container container--90">
+            <div class="slogan--item">
+                <h1>
+                    Zacznij pomagać!<br/>
+                    Oddaj niechciane rzeczy w zaufane ręce
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
 
 <section id="stats" class="stats">
     <div class="container container--85">

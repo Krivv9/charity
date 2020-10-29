@@ -30,16 +30,8 @@ public class DonationController {
         this.donationService = donationService;
     }
 
-    @ModelAttribute("categories")
-    public List<Category> findAllCategories() { return categoryService.findAllCategories();}
-
-    @ModelAttribute("institutions")
-    public List<Institution> findAllInstitutions() { return institutionService.findAllInstitutions();}
-
-
-
-    @PostMapping("/donation/confirm")
-    public String saveDonation(@Valid DonationToAddDTO donationDTO,
+    @PostMapping("/donation/form")
+    public String saveDonation(DonationToAddDTO donationDTO,
                                BindingResult result) {
         if (result.hasErrors()) {
             return "form";
@@ -50,7 +42,9 @@ public class DonationController {
 
     @GetMapping("/donation/form")
     public String showDonationForm(Model model) {
-        model.addAttribute("donation", new DonationToAddDTO());
+        model.addAttribute("categories", categoryService.findAllCategories());
+        model.addAttribute("institutions", institutionService.findAllInstitutions());
+        model.addAttribute("donationToAddDTO", new DonationToAddDTO());
         return "form";
     }
 }
