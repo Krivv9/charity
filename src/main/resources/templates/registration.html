@@ -13,18 +13,29 @@
 
 <section class="login-page">
     <h2>Załóż konto</h2>
-    <form method="post" th:action="@{/registration}" th:object="${userDTO}">
+    <form method="post" th:action="@{/registration}" th:object="${userToAddDTO}">
+        <ul>
+            <li class="error" th:errors="*"></li>
+        </ul>
         <div class="form-group">
-            <input type="email" name="email" placeholder="Email" th:field="*{email}"/>
+            <label>
+                <input type="email" name="email" placeholder="Email" th:field="*{email}"/>
+            </label>
         </div>
         <div class="form-group">
-            <input type="text" name="name" placeholder="Name" th:field="*{name}"/>
+            <label>
+                <input type="text" name="name" placeholder="Name" th:field="*{name}"/>
+            </label>
         </div>
         <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło" th:field="*{password}"/>
+            <label>
+                <input type="password" name="password" placeholder="Hasło" th:field="*{password}"/>
+            </label>
         </div>
         <div class="form-group">
-            <input type="password" name="doublePassword" placeholder="Powtórz hasło" th:field="*{doublePassword}"/>
+            <label>
+                <input type="password" name="doublePassword" placeholder="Powtórz hasło" th:field="*{doublePassword}"/>
+            </label>
         </div>
 
         <div class="form-group form-group--buttons">

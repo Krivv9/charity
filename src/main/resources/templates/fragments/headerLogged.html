@@ -6,7 +6,7 @@
                 <ul class="dropdown">
                     <li><a href="/panel">Profil</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
-                    <li><a href="/logout">Wyloguj</a></li>
+                    <li><a th:href="@{/logoutConfirm}">Wyloguj</a></li>
                 </ul>
             </li>
         </ul>
@@ -23,27 +23,10 @@
     <div class="slogan container container--90">
         <div class="slogan--item">
             <h1>
-                Oddaj rzeczy, których już nie chcesz<br/>
-                <span class="uppercase">potrzebującym</span>
+                Zacznij pomagać!<br/>
+                Oddaj niechciane rzeczy w zaufane ręce
             </h1>
-
-            <div class="slogan--steps">
-                <div class="slogan--steps-title">Wystarczą 4 proste kroki:</div>
-                <ul class="slogan--steps-boxes">
-                    <li>
-                        <div><em>1</em><span>Wybierz rzeczy</span></div>
-                    </li>
-                    <li>
-                        <div><em>2</em><span>Spakuj je w worki</span></div>
-                    </li>
-                    <li>
-                        <div><em>3</em><span>Wybierz fundację</span></div>
-                    </li>
-                    <li>
-                        <div><em>4</em><span>Zamów kuriera</span></div>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
+    <script th:src="@{/js/app.js}"></script>
 </div>

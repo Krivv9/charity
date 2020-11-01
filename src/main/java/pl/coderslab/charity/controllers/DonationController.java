@@ -39,12 +39,12 @@ public class DonationController {
     }
 
     @PostMapping("/donation/form")
-    public String saveDonation(DonationToAddDTO donationDTO,
+    public String saveDonation(DonationToAddDTO donationToAddDTO,
                                BindingResult result) {
         if (result.hasErrors()) {
             return "form";
         }
-        donationService.saveDonation(donationDTO);
+        donationService.saveDonation(donationToAddDTO);
         return "confirm";
     }
 }

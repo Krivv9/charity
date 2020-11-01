@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,19 +10,16 @@
 
 <body>
 
-<header th:include="fragments/header.html :: header" class="header--main-page">
-    <div>
-        <div class="slogan container container--90">
-            <div class="slogan--item">
-                <h1>
-                    Zacznij pomagać!<br/>
-                    Oddaj niechciane rzeczy w zaufane ręce
-                </h1>
-            </div>
-        </div>
-    </div>
-</header>
+<header th:include="fragments/header.html :: header" class="header--main-page"></header>
 
+
+<p sec:authorize="isAuthenticated()">
+<p>Zalogowany jako: <span sec:authentication="name"></span></p>
+<p>Posiada role: <span sec:authentication="authorities"></span></p>
+</p>
+<p sec:authorize="hasRole('ROLE_ADMIN')">
+    MAM ROLE ADMIN
+</p>
 <section id="stats" class="stats">
     <div class="container container--85">
         <div class="stats--item">
@@ -68,7 +65,7 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
+    <a href="/registration" class="btn btn--large">Załóż konto</a>
 </section>
 
 <section id="about-us" class="about-us">

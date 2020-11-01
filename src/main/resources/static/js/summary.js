@@ -1,6 +1,6 @@
-$(function () {
+document.addEventListener("DOMContentLoaded", function() {
 
-    let formElementsText = $('form#form .group1');
+    var formElementsText = $('form#donation .group1');
 
     formElementsText.each(function () {
         $(this).on('keyup', function () {

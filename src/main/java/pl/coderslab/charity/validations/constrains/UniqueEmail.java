@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueEmail {
-    String message() default "{uniquePhoneNumber.validation.message}";
+    String message() default "{uniqueEmail.validation.message}";
 
     Class<?>[] groups() default {};
 
