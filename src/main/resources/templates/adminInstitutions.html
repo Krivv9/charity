@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title th:text="#{app.title}">Nazwa aplikacji</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet"  th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header th:include="fragments/headerLogged.html :: header" class="header--form-page"></header>
+
+<section class="help">
+    <div class="help--slides active" data-id="1">
+        <p>Lista fundacji:</p>
+        <div class="form-group form-group--buttons">
+            <button type="button" class="btn btn--large">
+                <a th:href="@{/admin/institutions/add}">
+                    Dodaj nową Instytucję charytatywną
+                </a>
+            </button>
+        </div>
+        <br>
+        <br>
+
+        <ul class="help--slides-items">
+
+            <li th:each="institution: ${institutions}">
+
+                <div class="col">
+                    <div class="title">Fundacja <p th:text="${institution.name}"></p></div>
+                    <div class="subtitle">Cel i misja: <p th:text="${institution.description}"></p></div>
+                    <div class="form-group form-group--buttons">
+                        <form th:action="@{/admin/institutions/remove/confirm}" method="post">
+                        <button type="button" class="btn prev-step">
+                            <a th:href="@{/admin/institutions/edit/{id}(id=${institution.id})}">Edytuj</a>
+                        </button>
+
+                            <button type="submit" class="btn" name="id" th:value="${institution.id}">Usuń</button>
+                        </form>
+                    </div>
+                </div>
+
+            </li>
+
+        </ul>
+    </div>
+
+
+</section>
+
+
+<footer th:include="fragments/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/resources/js/app.js}"></script>
+</body>
+</html>

@@ -12,14 +12,6 @@
 
 <header th:include="fragments/header.html :: header" class="header--main-page"></header>
 
-
-<p sec:authorize="isAuthenticated()">
-<p>Zalogowany jako: <span sec:authentication="name"></span></p>
-<p>Posiada role: <span sec:authentication="authorities"></span></p>
-</p>
-<p sec:authorize="hasRole('ROLE_ADMIN')">
-    MAM ROLE ADMIN
-</p>
 <section id="stats" class="stats">
     <div class="container container--85">
         <div class="stats--item">

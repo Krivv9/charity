@@ -1,11 +1,11 @@
 package pl.coderslab.charity.models.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity @Setter @Getter
+@Entity @Data @NoArgsConstructor
+@AllArgsConstructor @Builder
 @Table(name = Institution.TABLE)
 public class Institution {
     public final static String TABLE = "institutions";

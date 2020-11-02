@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title th:text="#{app.title}">Nazwa aplikacji</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet"  th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header th:include="fragments/headerLogged.html :: header" class="header--form-page"></header>
+
+<section class="help">
+    <div class="help--slides active" data-id="1">
+        <p>Czy jesteś pewien że chcesz usunąć fundacje?</p>
+
+
+        <div class="form-group form-group--buttons">
+            <button type="button" class="btn prev-step">
+                <a th:href="@{/admin/institutions}">Anuluj</a>
+            </button>
+            <button type="button" class="btn prev-step">
+                <a th:href="@{/admin/institutions/remove/{id}(id=${id})}">Potwierdź</a>
+            </button>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<footer th:include="fragments/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/resources/js/app.js}"></script>
+</body>
+</html>>

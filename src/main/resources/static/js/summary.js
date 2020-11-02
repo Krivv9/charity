@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     });
 
-    $('form#donation .group3').on('click', function () {
+    $('form#donation .group3').on('blur' +
+        '', function () {
         let liField = $(this).attr("data-liId");
         console.log(this.value);
 
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (parseInt(this.value) >= 5) {
             document.querySelector(liField).innerHTML = this.value + ' worków ';
         } else {
-            document.querySelector(liField).innerHTML = 1 + ' worek ';
+            document.querySelector(liField).innerHTML = '1 worek ';
         }
 
     });

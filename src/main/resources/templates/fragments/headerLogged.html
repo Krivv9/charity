@@ -3,7 +3,7 @@
         <ul class="nav--actions">
             <li th:text="#{hello.message('Jan')}" class="logged-user">
                 Tekst powitania
-                <ul class="dropdown">
+                <ul class="nav--actions">
                     <li><a href="/panel">Profil</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
                     <li><a th:href="@{/logoutConfirm}">Wyloguj</a></li>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title th:text="#{app.title}">Nazwa aplikacji</title>
+    <link rel="stylesheet"  th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header th:include="fragments/header.html :: header" class="header--main-page"></header>
+
+
+<section class="login-page">
+    <div th:text="${errorMessage}"></div>
+    <br>
+    <div class="form-group form-group--buttons">
+
+        <button class="btn" type="submit" onclick="history.go(-1);">Powrót</button>
+    </div>
+
+
+</section>
+<!--<div class="level-item">
+    <input action="action" class="button is-info" type="button" value="Powrót" onclick="history.go(-1);"/>
+</div>-->
+
+<footer th:include="fragments/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/resources/js/app.js}"></script>
+</body>
+</html>
