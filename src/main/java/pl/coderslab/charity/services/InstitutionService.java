@@ -34,13 +34,12 @@ public class InstitutionService {
                 .name(institutionDTO.getName())
                 .description(institutionDTO.getDescription())
                 .build();
-        institutionDTO.setId(institutionEntity.getId());
-
         institutionRepository.save(institutionEntity);
+        institutionDTO.setId(institutionEntity.getId());
 
     }
 
-    public Object findInstitutionDTOById(long id) {
+    public InstitutionDTO findInstitutionDTOById(long id) {
         Institution iDB = institutionRepository.findInstitutionById(id);
 
         return InstitutionDTO.builder()
