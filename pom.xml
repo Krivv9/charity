@@ -67,6 +67,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        <dependency>
+<!--            /v3/api-docs z dokumentacją wszystkiego co ma adnotacje @ResponseBody -->
+<!--            swagger-ui z graficzną/interaktywną dokumentacją tego api -->
+            <groupId>org.springdoc</groupId>
+            <artifactId>spring-boot-springdoc</artifactId>
+            <version>3.1.2</version>
+        </dependency>
     </dependencies>
 
     <build>

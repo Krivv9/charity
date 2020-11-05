@@ -53,7 +53,7 @@ public class InstitutionRestController {
 
     @PutMapping("/{id}")
     // 200 OK +- treść
-    public ResponseEntity editInstitution(@Valid InstitutionDTO institutionDTO,
+    public ResponseEntity editInstitution(@Valid @RequestBody InstitutionDTO institutionDTO,
                                           @PathVariable Long id, Locale locale) throws JsonProcessingException {
         if(!id.equals(institutionDTO.getId())){
             return ResponseEntity.badRequest().body("{\"error\" : \"" + messageSource.getMessage("not.same.ids", null, locale) + "\"}");
