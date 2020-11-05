@@ -27,8 +27,11 @@ public class User {
     @Column(name = "user_id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstName")
+    private String firstName;
+
+    @Column(name = "lastName")
+    private String lastName;
 
     @Column(name = "email")
     private String email;
@@ -41,4 +44,7 @@ public class User {
 
     private String role;
 
+    public boolean isActive() {
+        return active;
+    }
 }

@@ -40,7 +40,7 @@ public class InstitutionService {
 
     }
 
-    public Object findInstitutionDTOById(long id) {
+    public InstitutionDTO findInstitutionDTOById(long id) {
         Institution iDB = institutionRepository.findInstitutionById(id);
 
         return InstitutionDTO.builder()

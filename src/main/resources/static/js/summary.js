@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     });
 
-    $('form#donation .group3').on('blur' +
-        '', function () {
+    $('form#donation .group3').on('blur' + '', function () {
         let liField = $(this).attr("data-liId");
         console.log(this.value);
 

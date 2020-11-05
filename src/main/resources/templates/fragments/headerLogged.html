@@ -1,11 +1,11 @@
 <div xmlns:th="http://www.thymeleaf.org" th:fragment="header">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li th:text="#{hello.message('Jan')}" class="logged-user">
-                Tekst powitania
-                <ul class="nav--actions">
-                    <li><a href="/panel">Profil</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
+            <li class="logged-user">
+                <span th:text="#{hello.message('Jan')}"></span>
+                <ul class="dropdown">
+                    <li><a th:href="@{/profil}">Profil</a></li>
+                    <li><a th:href="@{/zbiorki}">Moje zbiórki</a></li>
                     <li><a th:href="@{/logoutConfirm}">Wyloguj</a></li>
                 </ul>
             </li>

@@ -1,37 +1,33 @@
 package pl.coderslab.charity.models.dtos;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import pl.coderslab.charity.validations.constrains.DoublePassword;
+import lombok.NoArgsConstructor;
 import pl.coderslab.charity.validations.constrains.UniqueEmail;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Data
-@DoublePassword
-public class UserToAddDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class EditUserDTO {
 
     private long id;
+
+    private boolean active;
 
     private String firstName;
 
     private String lastName;
-
-    private boolean active;
-
-    @NotBlank
-    private String name;
 
     @Email
     @NotBlank
     @UniqueEmail
     private String email;
 
-    @Size(min = 4)
-    @NotBlank
-    private String password;
 
-    @NotBlank
-    private String doublePassword;
+
 }
